@@ -6,5 +6,17 @@
   <title>Blue Note Place Tonight</title>
 </head>
 <body>
+  <script type="text/javascript">
+    window.addEventListener('load', async () => {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const path = `/live/${year}${('00' + month).slice(-2)}`;
+      const url = `https://blue-note-place-calendar-http-api.onrender.com${path}`;
+      const response = await fetch(url);
+      const json = await response.json();
+      console.log(json);
+    });
+  </script>
 </body>
 </html>
